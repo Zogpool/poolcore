@@ -89,6 +89,7 @@ void *PoolBackend::backendMain()
   
   AccountingDb::config accountingCfg;
   accountingCfg.poolFee = _cfg.poolFee;
+  accountingCfg.luckFee = _cfg.luckFee;
   accountingCfg.poolFeeAddr = _cfg.poolFeeAddr;
   accountingCfg.requiredConfirmations = _cfg.requiredConfirmations;
   accountingCfg.defaultMinimalPayout = _cfg.defaultMinimalPayout;

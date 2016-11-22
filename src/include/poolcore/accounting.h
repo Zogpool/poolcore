@@ -19,6 +19,7 @@ class AccountingDb {
 public:
   struct config {
     unsigned poolFee;
+    unsigned luckFee;
     std::string poolFeeAddr;
     unsigned requiredConfirmations;
     int64_t defaultMinimalPayout;

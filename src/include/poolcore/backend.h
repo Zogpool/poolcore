@@ -14,6 +14,7 @@ public:
   struct config {
     bool isMaster;
     unsigned poolFee;
+    unsigned luckFee;
     std::string poolFeeAddr;
     std::string poolAppName;
     std::string walletAppName;

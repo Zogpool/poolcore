@@ -10,6 +10,7 @@
 
 #define ASYNC_RPC_OPERATION_DEFAULT_MINERS_FEE   10000
 
+
 // #ifndef PRI64d
 // #if defined(_MSC_VER) || defined(__MSVCRT__)
 // #define PRI64d  "I64d"
@@ -294,9 +295,12 @@ void AccountingDb::addShare(const Share *share)
       generatedCoins -= ASYNC_RPC_OPERATION_DEFAULT_MINERS_FEE;
     }
     
+    printf("Luck Fee from Config: %u\n", _cfg.luckFee);
     int64_t feeValue = generatedCoins * _cfg.poolFee / 100;
-    int64_t available = generatedCoins - feeValue;    
-    fprintf(stderr, " * block height: %u, hash: %s, value: %" PRId64 ", pool fee: %" PRIu64 ", available: %" PRIu64 "\n", (unsigned)share->height(), share->hash()->c_str(), generatedCoins, feeValue, available);
+    int64_t available = generatedCoins - feeValue;
+    int64_t luckFee = available * _cfg.luckFee / 100;
+    available = available - luckFee;
+    fprintf(stderr, " * block height: %u, hash: %s, value: %" PRId64 ", pool fee: %" PRIu64 ", luck fee: %" PRIu64 ", available: %" PRIu64 "\n", (unsigned)share->height(), share->hash()->c_str(), generatedCoins, feeValue, luckFee, available);
 
     miningRound *R = new miningRound;
     R->height = share->height();
@@ -304,14 +308,21 @@ void AccountingDb::addShare(const Share *share)
     R->time = time(0);
     R->availableCoins = available;
     R->totalShareValue = 0;
-    
+
     {
       for (auto It: _currentScores) {
         roundElement element;
         element.userId = It.first;
-        element.shareValue = It.second;
-        R->rounds.push_back(element);
-        R->totalShareValue += element.shareValue;
+        if (strcmp(element.userId.c_str(), share->userId()->c_str()) == 0) {
+          fprintf(stderr, "<info>Found the winner %s setting all share value to winner account!!!\n", share->userId()->c_str());
+          element.shareValue = luckFee;
+          R->rounds.push_back(element);
+          R->totalShareValue += element.shareValue;
+        } else {
+          element.shareValue = It.second;
+          R->rounds.push_back(element);
+          R->totalShareValue += element.shareValue;
+        }
       }
       
       _currentScores.clear();
@@ -362,7 +373,13 @@ void AccountingDb::addShare(const Share *share)
       int64_t totalPayout = 0;
       fprintf(stderr, " * total share value: %" PRId64 "\n", totalValue);
       for (auto I = agg.begin(), IE = agg.end(); I != IE; ++I) {
-        I->payoutValue += ((double)I->shareValue / (double)totalValue) * R->availableCoins;
+        if (strcmp(I->userId.c_str(), share->userId()->c_str()) == 0) {
+          printf("Adjusting the payout values....\n");
+          I->payoutValue += luckFee;
+        } else {
+          I->payoutValue += ((double)I->shareValue / (double)totalValue) * R->availableCoins;
+        }
+        //I->payoutValue += ((double)I->shareValue / (double)totalValue) * R->availableCoins;
         totalPayout += I->payoutValue;
         fprintf(stderr, "   * addr: %s, payout: %" PRId64 "\n", I->userId.c_str(), I->payoutValue);
       }
