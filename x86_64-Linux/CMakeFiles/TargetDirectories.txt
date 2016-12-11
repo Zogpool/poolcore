@@ -1,0 +1,14 @@
+/home/luckpool/pool/poolcore/x86_64-Linux/CMakeFiles/edit_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/CMakeFiles/rebuild_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolcommon/CMakeFiles/edit_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolcommon/CMakeFiles/rebuild_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolcommon/CMakeFiles/poolcommon.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolcore/CMakeFiles/edit_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolcore/CMakeFiles/rebuild_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolcore/CMakeFiles/poolcore.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolrpccmd/CMakeFiles/edit_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolrpccmd/CMakeFiles/rebuild_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/poolrpccmd/CMakeFiles/poolrpccmd.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/zcash/CMakeFiles/edit_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/zcash/CMakeFiles/rebuild_cache.dir
+/home/luckpool/pool/poolcore/x86_64-Linux/zcash/CMakeFiles/poolrpczcash.dir

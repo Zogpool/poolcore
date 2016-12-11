@@ -1,0 +1,1 @@
+/usr/bin/c++    -std=c++11   CMakeFiles/poolrpccmd.dir/poolrpccmd.cpp.o  -o poolrpccmd -rdynamic ../poolcommon/libpoolcommon.a /home/luckpool/pool/libp2p/x86_64-Linux/asyncio/libasyncio-0.3.a -lrt /home/luckpool/pool/libp2p/x86_64-Linux/p2p/libp2p.a /home/luckpool/pool/libp2p/x86_64-Linux/p2putils/libp2putils.a 

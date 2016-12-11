@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpoolcommon.a  CMakeFiles/poolcommon.dir/pool_generated.cpp.o CMakeFiles/poolcommon.dir/poolapi.cpp.o
+/usr/bin/ranlib libpoolcommon.a

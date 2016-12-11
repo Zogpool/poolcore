@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+c1fa18eb667bf8db2f3e6c95f6dd6b1e poolcommon/pool_generated.cpp

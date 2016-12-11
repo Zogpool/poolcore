@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpoolcore.a  CMakeFiles/poolcore.dir/base58.cpp.o CMakeFiles/poolcore.dir/api.cpp.o CMakeFiles/poolcore.dir/backendData.cpp.o CMakeFiles/poolcore.dir/kvdb.cpp.o CMakeFiles/poolcore.dir/leveldbBase.cpp.o CMakeFiles/poolcore.dir/backend.cpp.o CMakeFiles/poolcore.dir/accounting.cpp.o CMakeFiles/poolcore.dir/statistics.cpp.o
+/usr/bin/ranlib libpoolcore.a

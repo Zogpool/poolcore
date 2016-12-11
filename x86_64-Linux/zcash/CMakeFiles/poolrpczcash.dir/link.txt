@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpoolrpczcash.a  CMakeFiles/poolrpczcash.dir/__/poolrpc/poolrpc.cpp.o CMakeFiles/poolrpczcash.dir/zcash.cpp.o
+/usr/bin/ranlib libpoolrpczcash.a
